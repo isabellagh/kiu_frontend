@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchUsers } from './actions/fetchUsers';
+// import { fetchUsers } from './actions/fetchUsers';
 import Footer from './components/footer/Footer';
+import Login from './components/login/Login';
 import NavBar from './components/navbar/NavBar';
 import Welcome from './components/welcome/Welcome';
+import { getCurrentUser } from './actions/currentUser';
 
 class App extends React.Component {
   componentDidMount() {
-    // fetch('http://[::1]:3000/api/v1/users')
-    //   .then((response) => response.json())
-    //   .then((data) => console.log(data));
+    this.props.getCurrentUser();
   }
 
   render() {
@@ -17,16 +17,17 @@ class App extends React.Component {
       <div className='App'>
         <NavBar />
         <Welcome />
+        <Login />
         <Footer />
       </div>
     );
   }
-
-  // const mapStateToProps = (state) => {
-  //   return {
-  //     users: state.users
-  //   }
-  // }
 }
 
-export default connect(null, { fetchUsers })(App);
+const mapStateToProps = (state) => {
+  return {
+    loggedIn: !!state.currentUser,
+  };
+};
+
+export default connect(mapStateToProps, { getCurrentUser })(App);

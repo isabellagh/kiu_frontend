@@ -1,12 +1,14 @@
 import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import thunk from 'redux-thunk';
-import userReducer from '../reducers/userReducer';
+import usersReducer from '../reducers/usersReducer';
+import currentUser from '../reducers/currentUser';
+import loginForm from '../reducers/loginForm';
 
 const reducer = combineReducers({
-  userReducer,
-  // currentUser,
-  // loginForm,
+  users: usersReducer,
+  currentUser,
+  loginForm,
   // myClients,
   // signupForm,
 });

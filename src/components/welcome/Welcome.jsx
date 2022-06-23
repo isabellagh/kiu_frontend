@@ -1,7 +1,7 @@
 import React from 'react';
-import Calculator from '../calculator/Calculator';
+// import Calculator from '../calculator/Calculator';
 import Categories from './Categories';
-import Hero from './Hero';
+// import Hero from './Hero';
 import './welcome.css';
 
 const Welcome = () => {
