@@ -1,0 +1,10 @@
+.container-calculator {
+  min-height: 70vh;
+  width: 100%;
+  background-color: rgb(227, 231, 237);
+
+  @media only screen and (max-width: 600px) {
+    margin: 0 0 4rem 0;
+    width: 100%;
+  }
+}

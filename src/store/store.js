@@ -1,11 +1,18 @@
-import { compose, createStore, applyMiddleware } from 'redux';
+import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
+import userReducer from '../reducers/userReducer';
 
-import { rootReducer } from './root-reducer';
+const reducer = combineReducers({
+  userReducer,
+  // currentUser,
+  // loginForm,
+  // myClients,
+  // signupForm,
+});
 
-const middleWares = [logger];
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const composedEnhancers = compose(applyMiddleware(...middleWares));
+const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)));
 
-export const store = createStore(rootReducer, undefined, middleWares);
+export default store;
