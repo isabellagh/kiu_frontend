@@ -1,7 +1,10 @@
 import React from 'react';
 import './navbar.css';
+import { connect } from 'react-redux';
+// import Login from '../login/Login';
+// import Logout from '../logout/Logout';
 
-const NavBar = () => {
+const NavBar = ({ loggedIn }) => {
   return (
     <nav className='fixed'>
       <ul className='main-nav'>
@@ -15,11 +18,19 @@ const NavBar = () => {
           <a href='/'>WHR Calculator</a>
         </li>
         <li className='left'>
-          <a href='/'>LogIn</a>
+          <a href='/login'>LogIn</a>
+          {/* {loggedIn ? <Logout /> : <a href='/login'>LogIn</a>} */}
         </li>
       </ul>
     </nav>
   );
 };
 
-export default NavBar;
+const mapStateToProps = (currentUser) => {
+  return {
+    currentUser,
+    loggedIn: !!currentUser,
+  };
+};
+
+export default connect(mapStateToProps)(NavBar);
