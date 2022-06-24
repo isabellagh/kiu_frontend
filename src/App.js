@@ -24,10 +24,11 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    loggedIn: !!state.currentUser,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     loggedIn: !!state.currentUser,
+//   };
+// };
 
-export default connect(mapStateToProps, { getCurrentUser })(App);
+export default connect(null, { getCurrentUser })(App);
+// export default connect(mapStateToProps, { getCurrentUser })(App);

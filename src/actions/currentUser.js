@@ -44,11 +44,11 @@ export const getCurrentUser = () => {
       },
     })
       .then((response) => response.json())
-      .then((resp) => {
-        if (resp.error) {
-          console.log('getCurrentUser', resp);
+      .then((user) => {
+        if (user.error) {
+          console.log('getCurrentUser', user);
         } else {
-          dispatch(setCurrentUser(resp.data));
+          dispatch(setCurrentUser(user));
           // dispatch(getMyClients())
         }
       })
